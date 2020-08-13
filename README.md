@@ -1,7 +1,7 @@
 # crud-node
 
 ## Detalhes
-- CRUD básico em Node JS
+- CRUD básico em Node JS com MySql
 - Cria novo usuário com nome, email e senha
 - Lista todos os usuários
 - Atualiza usuário pelo id
