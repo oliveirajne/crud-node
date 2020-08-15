@@ -1,4 +1,5 @@
 const connection = require('../database/connection');
+const bcrypt = require('bcrypt');
 
 module.exports = {
 
@@ -11,7 +12,8 @@ module.exports = {
     async create(req, res, next) {
         const { name, email, password } = req.body;
 
-        let hash = password; // mandar um bcrypt aqui
+        let salt = bcrypt.genSaltSync(10);
+        let hash = bcrypt.hashSync(password, salt);
 
         try {
             await connection('users').insert({
