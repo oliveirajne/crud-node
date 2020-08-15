@@ -8,6 +8,8 @@
   - [Instalação](#instalação)
   - [Desenvlvimento](#desenvolvimento)
   - [Bibliotecas](#bibliotecas)
+  - [Endpoints](#endpoints)
+  - [Debug](#debug)
 
 ## Descrição
 - CRUD básico em Node JS com MySql
@@ -35,3 +37,52 @@
 - knex
 - mysql
 - nodemon
+
+## Endpoints
+
+- **GET** /users/index
+GET simples para listar os usuários, sem parâmetros.
+Retorno:
+```json=
+  statusCode: 200
+```
+- **POST** /users/create
+
+Entrada:
+```json=
+{
+  "name": "nometeste",
+  "email": "nome@nome.com",
+  "password": "teste@teste"
+}
+```
+
+Retorno:
+```json=
+  statusCode: 201
+```
+
+- **PUT** /users/update/:id 
+(:id = id do user a ser atualizado)
+Entrada:
+```json=
+{
+  "name": "Fulano",
+  "email": "fulano@nome.com",
+  "password": "passwordfulano"
+}
+```
+
+Retorno:
+```json=
+  statusCode: 200
+```
+- **DELETE** /users/delete/:id
+(:id = id do user a ser deletado)
+Retorno:
+```json=
+  statusCode: 200
+```
+## Debug
+
+Após iniciar o servidor com `npm start`, vá na aba lateral DEBUG do VSCode, clicar no botao "start debugging" (o símbolo play) e escolher o arquivo Attach Program. O arquivo tem as configurações necessárias para o debug do código no VSCode. Aí é só colocar os breakpoints pelo código. :)
