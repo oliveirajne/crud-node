@@ -29,16 +29,18 @@ module.exports = {
 
     },
 
-    async update(req, res) {
+    async update(req, res, next) {
         const { name, email, password } = req.body;
         const { id } = req.params;
 
+        let salt = bcrypt.genSaltSync(10);
+        let hash = bcrypt.hashSync(password, salt);
+
         try {
-            await connection('users')
-            .update({
+            await connection('users').update({
                 name,
                 email,
-                password
+                hash
             })
             .where({ id: id });
             
@@ -52,7 +54,7 @@ module.exports = {
         const { id } = req.params;
 
         try {
-            await connection(users)
+            await connection('users')
             .where({ id: id})
             .del();
 
