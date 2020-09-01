@@ -7,8 +7,16 @@
     "start": "nodemon src/index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/oliveirajne/crud-node.git"
+  },
   "author": "oliveirajne",
   "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/oliveirajne/crud-node/issues"
+  },
+  "homepage": "https://github.com/oliveirajne/crud-node#readme",
   "dependencies": {
     "bcrypt": "^5.0.0",
     "cors": "^2.8.5",
